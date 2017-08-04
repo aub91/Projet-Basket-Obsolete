@@ -15,6 +15,14 @@
             border-right: 5px solid transparent;
             border-bottom: 10px solid red;
         }
+		
+		#bouton{
+			float:left;
+		}
+		
+		#titre{
+			float:left;
+		}
     
     </style>
     
@@ -27,26 +35,40 @@
                 x.className = x.className.replace(" w3-show", "");
             }
 }
+
+		function showLogin() {
+			var x = document.getElementById("login");
+			if (x.className.indexOf("w3-show") == -1) { 
+				x.className += " w3-show";
+			} else {
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
     </script>
+	
+	
 </head>
 
 <body>
     <div class="w3-row" style="height:100vh">
-        <div class="w3-col w3-row">
-            <header class="w3-col w3-green">
+        <div class="w3-col w3-row" id="top">
+            <header class="w3-col w3-grey">
                 <div class="w3-container w3-center">
-                    <h1>Nom de l'association</h1>
+					<button class="w3-button w3-hover-red w3-green w3-hide-small">Nous Rejoindre</button>
+                    <h1 class="titre">Nom de l'association</h1>
+					<a href="" id="bouton">Comment ça marche ?</a>
+						
                 </div>
-            </header>
+			</header>
             <nav class="w3-bar w3-green w3-col">
                 <button class="w3-bar-item w3-button w3-hover-red w3-green w3-hide-small">Bouton 1</button>
                 <button class="w3-bar-item w3-button w3-hover-red w3-green w3-mobile w3-hide-small">Bouton 2</button>
                 <button class="w3-bar-item w3-button w3-hover-red w3-green w3-hide-small">Bouton 3</button>
                 <button class="w3-bar-item w3-button w3-hover-red w3-green w3-hide-small">Bouton 4</button>
                 
-                <div class="w3-bar-item w3-dropdown-hover w3-button w3-mobile w3-right w3-green w3-hover-red">
+                <div class="w3-dropdown-click w3-button w3-mobile w3-right w3-green w3-hover-red" onclick="showLogin()">
                     Login
-                    <div class="w3-dropdown-content w3-red" style="right: 0">
+                    <div class="w3-dropdown-content w3-bar-block w3-red" style="right: 0" id="login">
                         <div class="w3-padding-small">
                         <label>Identifiant</label>
                         </div>
@@ -72,6 +94,7 @@
                     <button class="w3-bar-item w3-button w3-hover-red w3-green w3-mobile">Bouton 4</button>
                 </div>
             </nav>
+
             
             
         </div>
