@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="accueil.css" type="text/css">	
+    <style>
+        body{margin: 0;
+        padding: 0;}
+        
+        #triangle-up{
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 10px solid red;
+        }
+		
+		#bouton{
+			float:left;
+		}
+		
+		#titre{
+			float:left;
+		}
+        
+        #map{
+            width: 90%;
+            height:70%;
+        }
+    
+    </style>
+    
+    <script>
+        function showMenu() {
+            var x = document.getElementById("mobileMenu");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+            }
+}
+
+		function showLogin() {
+			var x = document.getElementById("login");
+			if (x.className.indexOf("w3-show") == -1) { 
+				x.className += " w3-show";
+			} else {
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
+        
+        var map;
+        function initMap(){
+            map = new google.maps.Map(document.getElementById('map'),{ center:{lat: 48.8534, lng: 2.3488},
+            zoom:8});
+            
+            //Géolocalisation
+            /*
+                if (navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude, lng: position.coords.longitude
+                    };
+                    
+                    map.setCenter(pos);
+                });
+            }
+            */
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf-7j3fGn9ixB1w2exeFysSJtWlWUYiFc 	
+&callback=initMap"></script>
+	
+	
+</head>
+
+<body>
+    <div class="w3-row" style="height:100vh">
+        <div class="w3-col w3-row">
+            <header class="w3-col w3-grey">
+                <div class="w3-container w3-center w3-row">
+					<div class="w3-display-container w3-col l3 m3 w3-hide-small" style="height:75px">
+						<button class="w3-button w3-hover-red w3-green w3-round w3-display-left w3-mid-wide w3-btn:hover">Nous Rejoindre</button>
+					</div>
+                    <h1 class="titre  w3-col l6 m6 s12">Paniers Perchés</h1>
+					<div class="w3-display-container w3-col l3 m3 w3-hide-small" style="height:75px">
+						<a href="" id="bouton" class="w3-display-right w3-text-dark-grey"><b>Comment ça marche ?</b></a>
+					</div>
+                </div>
+			</header>
+            <nav class="w3-bar w3-green w3-col w3-wide">
+                <button class="w3-bar-item w3-button w3-hover-red w3-green w3-hide-small">Bouton 1</button>
+                <button class="w3-bar-item w3-button w3-hover-red w3-green w3-hide-small w3-mobile ">Bouton 2</button>
+                <button class="w3-bar-item w3-button w3-hover-red w3-green w3-hide-small">Bouton 3</button>
+                <button class="w3-bar-item w3-button w3-hover-red w3-green w3-hide-small">Bouton 4</button>
+                
+                <div class="w3-dropdown-hover w3-button w3-mobile w3-right w3-green w3-hover-red" >
+                    <span onclick="showLogin()">Login</span>
+                    <div class="w3-dropdown-content w3-bar-block w3-red w3-round-small" style="right: 0" id="login">
+                        <div class="w3-padding-small">
+                        <label>Identifiant</label>
+                        </div>
+                        <div class="w3-padding-small">
+                            <input class="w3-input w3-round-small" type="text"/>
+                        </div>
+                        <div class="w3-padding-small">
+                        <label>Mot de passe</label>
+                        </div>
+                        <div class="w3-padding-small">
+                            <input class="w3-input w3-round-small" type="password"/>
+                        </div>
+                        <div class="w3-padding-small">
+                            <button class="w3-button w3-green w3-hover-light-green w3-round-small" style="width:100%">Connexion</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="w3-bar-item w3-button w3-hide-large w3-hide-medium w3-hover-red w3-mobile" onclick="showMenu()">&#9776;</button>
+                <div id="mobileMenu" class="w3-bar-block w3-red w3-hide w3-hide-large w3-hide-medium">
+                    <button class="w3-bar-item w3-button w3-hover-red w3-green w3-mobile">Bouton 1</button>
+                    <button class="w3-bar-item w3-button w3-hover-red w3-green w3-mobile">Bouton 2</button>
+                    <button class="w3-bar-item w3-button w3-hover-red w3-green w3-mobile">Bouton 3</button>
+                    <button class="w3-bar-item w3-button w3-hover-red w3-green w3-mobile">Bouton 4</button>
+                </div>
+            </nav>  
+        </div>
+        
+        <!--Début partie libre-->
+		<!-- ANCIENNE VERSION (à supprimer si plus utilisée)
+		<div class="w3-col" style="background-image: url(images/accueil.jpg); width:100% ; height:100%;" id="AccueilRubanBackground">
+			<div class="w3-col l4 m8 s12 w3-cell-middle w3-padding-small w3-display-middle">
+				<h2 class="w3-mid-wide  w3-center" id="AccueilRubanTexte">Trouver un point relais</h2>
+				<dfn><input class="w3-round w3-input w3-center w3-text-grey w3-opacity-min" type="text"/></dfn>
+			</div>
+		</div>
+		-->
+        <div class="w3-col w3-display-container" style="height:80vh; overflow:auto">
+            <img src="Images/accueil.jpg" alt="tomates cerises sur fond blanc" style="width:100%;position:relative;z-index:-1"/>
+            <form class="w3-panel w3-center w3-display-topmiddle " style="width:100%"> <!-- créer classe spécifique pour modifier la width en fonction du @media -->
+                <h2><label class="w3-text-red w3-mid-wide w3-center">Trouver un point-relais</label></h2>
+                <dfn><input class="w3-input w3-round w3-text-grey w3-center w3-opacity-min" type="text"></dfn>
+            </form>
+            <div id="map" class="w3-panel w3-display-bottommiddle"></div>
+        </div>
+        <!--Fin partie libre-->
+        
+        <footer class="w3-col w3-green">
+        Created by La TeamCrocket
+        </footer>
+    </div>
+</body>
+</html>
