@@ -32,7 +32,7 @@ function showLogin() {
           zoom: 8
         });
         var infoWindow = new google.maps.InfoWindow;
-
+		var markerTab = [];
           // Change this depending on the name of your PHP or XML file
           downloadUrl('placeData.xml', function(data) {
             var xml = data.responseXML;
@@ -64,11 +64,16 @@ function showLogin() {
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);
               });
+			  markerTab.push(marker);
             });
+			var markerCluster = new MarkerClusterer(map, markerTab,
+            {imagePath: 'exampleClusterer/m'});
           });
+		  
+		  
+		  // Add a marker clusterer to manage the markers.
+        
         }
-
-
 
       function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
