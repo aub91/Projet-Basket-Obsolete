@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<markers>
+	<marker name="Ferme de Paris" address="1 route de Pesage, 75012 Paris, France" lat="48.822477" lng="2.444399" type="producteur"/>
+	<marker name="Supérette d'Orléans" address="130 Boulevard Brune, 75014 Paris, France" lat="48.823423" lng="2.323553" type="pointRelais"/>
+	<marker name="Supérette" address="21 Avenue de Verdun, 92170 Vanves, France" lat="48.820826" lng="2.294402" type="pointRelais"/>
+	<marker name="Ferme de Gally" address="33 Rue de Chatou, 78500 Sartrouville, France" lat="48.941605" lng="2.189682" type="producteur"/>
+	<marker name="Ferme pédagogique de la Butte Pinson" address="16 Rue Suzanne Valadon, 95360 Montmagny" lat="48.967287" lng="2.353129" type="producteur"/>
+</markers>
