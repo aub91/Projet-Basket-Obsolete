@@ -67,7 +67,7 @@ function showLogin() {
 			  markerTab.push(marker);
             });
 			var markerCluster = new MarkerClusterer(map, markerTab,
-            {imagePath: 'exampleClusterer/m'});
+            {imagePath: 'markerClusterer/m'});
           });
 		  
 		  
