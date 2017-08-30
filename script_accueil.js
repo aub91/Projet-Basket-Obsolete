@@ -46,37 +46,59 @@ function showLogin() {
 			};
 			
             for (var i = 0; i<markers.marker.length; i++) {
-              var name = markers.marker[i].name;
-              var address = markers.marker[i].address;
-              var type = markers.marker[i].type;
-              var point = new google.maps.LatLng(
+              (function(){
+				var name = markers.marker[i].name;
+				var address = markers.marker[i].address;
+				var type = markers.marker[i].type;
+				var point = new google.maps.LatLng(
                   parseFloat(markers.marker[i].lat),
                   parseFloat(markers.marker[i].lng));
-              var infowincontent = document.createElement('div');
-              var strong = document.createElement('strong');
-              strong.textContent = name;
-              infowincontent.appendChild(strong);
-              infowincontent.appendChild(document.createElement('br'));
-              var text = document.createElement('text');
-              text.textContent = address;
-              infowincontent.appendChild(text);
-              var icon = customLabel[markers.marker[i].type] || {};
-              var marker = new google.maps.Marker({
-                map: map,
-                position: point,
-                label: icon.label
-              });
-              marker.addListener('click', function() {
-                infoWindow.setContent(infowincontent);
-                infoWindow.open(map, marker);
-              });
-			  
-			  markerTab.push(marker);
-            }
-			
+				var infowincontent = document.createElement('div');
+				var strong = document.createElement('strong');
+				strong.textContent = name;
+				infowincontent.appendChild(strong);
+				infowincontent.appendChild(document.createElement('br'));
+				var text = document.createElement('text');
+				text.textContent = address;
+				infowincontent.appendChild(text);
+				var icon = customLabel[markers.marker[i].type] || {};
+				var markerElem = new google.maps.Marker({
+					map: map,
+					position: point,
+					label: icon.label
+				});
+				markerElem.addListener('click', function() {
+					infoWindow.setContent(infowincontent);
+					infoWindow.open(map, markerElem);
+				});
+				markerTab.push(markerElem);
+				}());
+			}
 			var markerCluster = new MarkerClusterer(map, markerTab,
             {imagePath: 'markerClusterer/m'});
 			
-          };
+          }
 
       function doNothing() {}
+	  
+	$(document).ready(function() {
+		$('.js-scrollTo').on('click', function() { // Au clic sur un élément
+			var page = $(this).attr('href'); // Page cible
+			var speed = 750; // Durée de l'animation (en ms)
+			$('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+			return false;
+		});
+	});
+	
+	$(window).on('scroll', function() {
+// as you scroll this will continuously be fire:
+// if the distance you've scrolled is greater than or equal to the top position of section 2 add the in-view class 
+  if($(window).scrollTop() >= 15) {
+    $('#nousConnaitre').fadeOut();
+  } else {
+ // if it's less than that, remove the class
+    $('#nousConnaitre').fadeIn();
+  }
+});
+	  
+	  

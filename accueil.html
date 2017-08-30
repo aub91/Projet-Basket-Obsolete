@@ -27,26 +27,22 @@
         
         #map{
             width: 90%;
-            height:70%;
+            height:65%;
         }
     
     </style>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="script_accueil.js">
     </script>
-    
     <script src="markerClusterer/markerclusterer.js">
     </script>
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCf-7j3fGn9ixB1w2exeFysSJtWlWUYiFc 	
 &callback=initMap"></script>
-	
-	
 </head>
 
 <body>
     <div class="w3-row" style="height:100vh">
-        <div class="w3-col w3-row">
+        <div class="w3-col w3-row w3-top">
             <header class="w3-col w3-grey">
                 <div class="w3-container w3-center w3-row">
 					<div class="w3-display-container w3-col l3 m3 w3-hide-small" style="height:75px">
@@ -93,15 +89,30 @@
                 </div>
             </nav>  
         </div>
+		<br id="retourAuTop"/><br/><br/><br/><br/>
         <!--Début partie libre-->
-        <div class="w3-col w3-display-container" style="height:80vh; overflow:auto">
-            <img src="Images/accueil.jpg" alt="tomates cerises sur fond blanc" style="width:100%;position:relative;z-index:-1"/>
-            <form class="w3-panel w3-center w3-display-topmiddle " style="width:100%"> 
-                <h2><label class="w3-text-red w3-mid-wide w3-center">Trouver un point-relais</label></h2>
-                <dfn><input class="w3-input w3-round w3-text-grey w3-center w3-opacity-min" type="text"></dfn>
-            </form>
-            <div id="map" class="w3-panel w3-display-bottommiddle"></div>
-        </div>
+		<div id="mainContainer" class="w3-col" style="overflow:auto" onscroll="customScroll()">
+			<div class="w3-display-container" style="height:86vh; overflow:hidden">
+				<img src="Images/accueil.jpg" alt="tomates cerises sur fond blanc" class="w3-image" style="width:100%;height:86vh;position:relative;z-index:-1"/>
+				<form class="w3-container w3-center w3-display-topmiddle " style="width:100%"> 
+					<h2><label class="w3-text-red w3-mid-wide w3-center">Trouver un point-relais</label></h2>
+					<dfn><input class="w3-input w3-round w3-text-grey w3-center w3-opacity-min" type="text"></dfn>
+				</form>
+				<div id="map" class="w3-panel w3-display-middle"></div>
+				<div id="nousConnaitre" class="w3-panel w3-display-bottommiddle">
+					<a href="#presentation" class="w3-button w3-circle w3-green w3-xlarge w3-hover-red js-scrollTo">Nous connaître</a>
+				</div>
+			</div>
+			<div id="presentation" class="w3-display-container" style="height:85vh; overflow:hidden">
+				<img src="Images/accueil.jpg" alt="tomates cerises sur fond blanc" class="w3-image" style="width:100%;height:85vh;position:relative;z-index:-1"/>
+				<div class="w3-panel w3-display-bottomright">
+					<a href="#retourAuTop" class="w3-button w3-circle w3-green w3-large w3-hover-red js-scrollTo">Retour au top</a>
+				</div>
+				<span class="w3-display-middle w3-container w3-text-red w3-green w3-mid-wide">
+					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				</span>
+			</div>
+		</div>
         <!--Fin partie libre-->
         
         <footer class="w3-col w3-green">
